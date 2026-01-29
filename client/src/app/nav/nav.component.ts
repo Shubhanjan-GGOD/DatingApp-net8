@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
 import { NgIf, TitleCasePipe } from '@angular/common';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -10,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [FormsModule, NgIf,BsDropdownModule,RouterLink,RouterLinkActive,TitleCasePipe],
+  imports: [FormsModule, NgIf, RouterLink, RouterLinkActive, TitleCasePipe],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
@@ -21,6 +20,7 @@ export class NavComponent {
    private toastr =inject(ToastrService);
   
   model: any = {};
+  dropdownOpen = false;
 
   login() {
     this.accountservice.login(this.model).subscribe({
@@ -37,6 +37,10 @@ export class NavComponent {
   {
     this.accountservice.logout();
     this.router.navigateByUrl('/');
+  }
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
   }
 
 }

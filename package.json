@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@angular/cli": "^17.3.12"
+  },
+  "devDependencies": {
+    "daisyui": "^5.5.18"
   }
 }

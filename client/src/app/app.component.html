@@ -1,4 +1,8 @@
 <app-nav></app-nav>
-<app-home [usersFromApp]="users()"></app-home>
+<!-- <app-home [usersFromApp]="users()"></app-home> -->
+
+<div [ngClass] = "{'mt-24 container mx-auto': !(router.url === '/')}">
+    <router-outlet></router-outlet>
+</div>
 
 
